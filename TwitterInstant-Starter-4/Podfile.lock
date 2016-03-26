@@ -1,0 +1,23 @@
+PODS:
+  - ReactiveCocoa (2.1.8):
+    - ReactiveCocoa/Core (= 2.1.8)
+    - ReactiveCocoa/no-arc (= 2.1.8)
+  - ReactiveCocoa/Core (2.1.8):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.1.8)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
+  - YYModel (1.0.2)
+
+DEPENDENCIES:
+  - ReactiveCocoa (= 2.1.8)
+  - SDWebImage
+  - YYModel
+
+SPEC CHECKSUMS:
+  ReactiveCocoa: f89f2e009a87951b50321bf9feb958823fcc617e
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  YYModel: 7a467eff45ae3641c33efb136c262d33b6f48c1a
+
+COCOAPODS: 0.39.0
