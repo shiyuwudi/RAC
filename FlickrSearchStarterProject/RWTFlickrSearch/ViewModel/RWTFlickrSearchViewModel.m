@@ -32,7 +32,7 @@
     
     self.executeSearch = [[RACCommand alloc] initWithEnabled:validSearchSignal
                             signalBlock:^RACSignal *(id input) {
-                                return  [self executeSearchSignal];
+                                return [self executeSearchSignal];
                             }];
 }
 

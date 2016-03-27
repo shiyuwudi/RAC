@@ -39,6 +39,8 @@
     self.title = self.viewModel.title;
     RAC(self.viewModel, searchText) = self.searchTextField.rac_textSignal;
     self.searchButton.rac_command = self.viewModel.executeSearch;
+    RAC([UIApplication sharedApplication], networkActivityIndicatorVisible) = self.viewModel.executeSearch.executing;
+    RAC(self.loadingIndicator, hidden) = [self.viewModel.executeSearch.executing not];
 }
 
 

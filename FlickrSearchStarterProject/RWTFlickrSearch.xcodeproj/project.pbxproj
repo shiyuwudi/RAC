@@ -112,6 +112,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		297003181CA7869800C65EA0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				72E401A5192C03AB00354806 /* comment.png */,
+				72E401A6192C03AB00354806 /* fave.png */,
+			);
+			name = Images;
+			path = View;
+			sourceTree = "<group>";
+		};
 		728550B1193E52510032A754 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 		72E40175192BFFCE00354806 /* RWTFlickrSearch */ = {
 			isa = PBXGroup;
 			children = (
+				297003181CA7869800C65EA0 /* Images */,
 				728550B1193E52510032A754 /* Util */,
 				72E401C1192C82CA00354806 /* Model */,
 				72E401C0192C82C100354806 /* ViewModel */,
@@ -205,8 +216,6 @@
 				72E401BB192C050F00354806 /* RWTSearchResultsTableViewCell.h */,
 				72E401BC192C050F00354806 /* RWTSearchResultsTableViewCell.m */,
 				72E401BD192C050F00354806 /* RWTSearchResultsTableViewCell.xib */,
-				72E401A5192C03AB00354806 /* comment.png */,
-				72E401A6192C03AB00354806 /* fave.png */,
 				72E401A7192C03AB00354806 /* RWTFlickrSearchViewController.h */,
 				72E401A8192C03AB00354806 /* RWTFlickrSearchViewController.m */,
 				72E401A9192C03AB00354806 /* RWTFlickrSearchViewController.xib */,
