@@ -44,7 +44,7 @@
         
         //2.创建请求,并引用
         OFFlickrAPIRequest *request = [[OFFlickrAPIRequest alloc]initWithAPIContext:self.flickrContext];
-        request.delegate = self; //位置可能不对?
+        request.delegate = self;
         [self.requests addObject:request];
         
         //3.创建代理回调信号
