@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F740FB8DA32E0C42E7480A5C'
+               BlueprintIdentifier = '3D24369E981E4F192BC539B0'
                BlueprintName = 'LinqToObjectiveC'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libLinqToObjectiveC.a'>
