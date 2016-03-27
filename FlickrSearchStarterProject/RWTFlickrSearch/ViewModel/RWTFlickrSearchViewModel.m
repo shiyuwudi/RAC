@@ -22,16 +22,26 @@
     
     __weak RWTFlickrSearchViewModel *bSelf = self;
     
-    RACSignal *validSearchTextSignal = [[RACObserve(self, searchText) map:^id(NSString *text) {
+    RACSignal *validSearchSignal = [[RACObserve(self, searchText) map:^id(NSString *text) {
         return @([bSelf isValidSearchText:text]);
     }] distinctUntilChanged];
     
-    [validSearchTextSignal subscribeNext:^(NSNumber *valid) {
+    [validSearchSignal subscribeNext:^(NSNumber *valid) {
         NSLog(@"%@",[valid boolValue] ? @"yes" : @"no");
     }];
+    
+    self.executeSearch = [[RACCommand alloc] initWithEnabled:validSearchSignal
+                            signalBlock:^RACSignal *(id input) {
+                                return  [self executeSearchSignal];
+                            }];
 }
 
-- (BOOL) isValidSearchText:(NSString *)text {
+- (RACSignal *)executeSearchSignal {
+    //业务逻辑部分(网络请求)
+    return [[[[RACSignal empty] logAll] delay:2.0] logAll];
+}
+
+- (BOOL)isValidSearchText:(NSString *)text {
     return text.length > 3;
 }
 

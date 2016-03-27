@@ -38,6 +38,7 @@
 - (void)bindViewModel {
     self.title = self.viewModel.title;
     RAC(self.viewModel, searchText) = self.searchTextField.rac_textSignal;
+    self.searchButton.rac_command = self.viewModel.executeSearch;
 }
 
 
