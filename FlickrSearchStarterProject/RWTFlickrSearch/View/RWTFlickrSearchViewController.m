@@ -37,10 +37,17 @@
 
 - (void)bindViewModel {
     self.title = self.viewModel.title;
+    //绑文本框
     RAC(self.viewModel, searchText) = self.searchTextField.rac_textSignal;
+    //绑按钮
     self.searchButton.rac_command = self.viewModel.executeSearch;
+    //绑菊花
     RAC([UIApplication sharedApplication], networkActivityIndicatorVisible) = self.viewModel.executeSearch.executing;
     RAC(self.loadingIndicator, hidden) = [self.viewModel.executeSearch.executing not];
+    //绑键盘
+    [self.viewModel.executeSearch.executionSignals subscribeNext:^(id x) {
+        [self.searchTextField resignFirstResponder];
+    }];
 }
 
 

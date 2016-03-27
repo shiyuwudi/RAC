@@ -8,10 +8,17 @@
 
 #import "RWTFlickrSearchViewModel.h"
 
+@interface RWTFlickrSearchViewModel ()
+
+@property (nonatomic, weak) id<RWTViewModelServices> services;
+
+@end
+
 @implementation RWTFlickrSearchViewModel
 
--(instancetype)init{
+-(instancetype)initWithServices:(id<RWTViewModelServices>)services {
     if (self = [super init]) {
+        _services = services;
         [self setup];
     }
     return self;
@@ -26,19 +33,15 @@
         return @([bSelf isValidSearchText:text]);
     }] distinctUntilChanged];
     
-    [validSearchSignal subscribeNext:^(NSNumber *valid) {
-        NSLog(@"%@",[valid boolValue] ? @"yes" : @"no");
-    }];
-    
+    //点击事件
     self.executeSearch = [[RACCommand alloc] initWithEnabled:validSearchSignal
                             signalBlock:^RACSignal *(id input) {
-                                return [self executeSearchSignal];
+                                return [bSelf executeSearchSignal];
                             }];
 }
 
 - (RACSignal *)executeSearchSignal {
-    //业务逻辑部分(网络请求)
-    return [[[[RACSignal empty] logAll] delay:2.0] logAll];
+    return [[self.services getFlickrSearchService] flickerSearchSignal:self.searchText];
 }
 
 - (BOOL)isValidSearchText:(NSString *)text {
