@@ -10,4 +10,8 @@
 
 @implementation RWTFlickrPhoto
 
+-(NSString *)description{
+    return self.title;
+}
+
 @end
