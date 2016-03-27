@@ -41,7 +41,9 @@
 }
 
 - (RACSignal *)executeSearchSignal {
-    return [[self.services getFlickrSearchService] flickerSearchSignal:self.searchText];
+    return [[[self.services getFlickrSearchService]
+             flickerSearchSignal:self.searchText]
+            logAll];
 }
 
 - (BOOL)isValidSearchText:(NSString *)text {

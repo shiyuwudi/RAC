@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>YYModel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>objectiveflickr.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>4BD1242555E9AC56B9DE7F6C77D7A15A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7E541DB54EDDCF73D6CC979B37313340</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7FB6C6DA6DC5EABF2181879D30C9CFD0</key>
+		<key>A179449976744FF0A3516F0C5511AD28</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>991727858D981E09E4F1B728E2EF8324</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CB89328D220141AA6A34A79E1AABCABE</key>
+		<key>C45E312AB53725603EF714C3F49185B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E84B8811FCA99973072222CA3E833D26</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA99A64B6EA82B90B597AEF36819CDBB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

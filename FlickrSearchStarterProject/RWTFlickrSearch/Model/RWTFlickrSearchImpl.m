@@ -69,8 +69,33 @@
     }];
 }
 
-- (RACSignal *)flickerSearchSignal:(NSString *)text {
-    return [[[[RACSignal empty] logAll] delay:2.0] logAll];
+- (RACSignal *)flickerSearchSignal:(NSString *)searchString {
+    
+    NSString *url = @"flickr.photos.search";
+    NSDictionary *args = @{
+                           @"text": searchString,
+                           @"sort": @"interestingness-desc"
+                           };
+    
+    return [self signalFromAPIMethod:url
+                           arguments:args
+                           transform:^id(NSDictionary *response) {
+                               //转模型
+                               RWTFlickrSearchResults *results = [RWTFlickrSearchResults new];
+                               results.searchString = searchString;
+                               results.totalResults = [response[@"photos"][@"total"] integerValue];
+                               
+                               NSArray *photos = [response valueForKeyPath:@"photos.photo"];
+                               results.photos = [photos linq_select:^id(NSDictionary *jsonPhoto) {
+                                   RWTFlickrPhoto *photo = [RWTFlickrPhoto new];
+                                   photo.title = [jsonPhoto objectForKey:@"title"];
+                                   photo.identifier = [jsonPhoto objectForKey:@"id"];
+                                   photo.url = [self.flickrContext photoSourceURLFromDictionary:jsonPhoto
+                                                                                           size:OFFlickrSmallSize];
+                                   return photo;
+                               }];
+                               return results;
+                           }];
 }
 
 @end

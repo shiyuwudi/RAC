@@ -10,6 +10,6 @@
 
 @protocol RWTFlickrSearch <NSObject>
 
-- (RACSignal *)flickerSearchSignal:(NSString *)text;
+- (RACSignal *)flickerSearchSignal:(NSString *)searchString;
 
 @end
