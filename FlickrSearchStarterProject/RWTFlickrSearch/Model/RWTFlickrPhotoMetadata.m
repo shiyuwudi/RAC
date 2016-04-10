@@ -10,4 +10,8 @@
 
 @implementation RWTFlickrPhotoMetadata
 
+-(NSString *)description{
+    return [NSString stringWithFormat:@"图片元数据: 评价数: %ld;收藏数: %ld",(long)self.comments, (long)self.favorites];
+}
+
 @end

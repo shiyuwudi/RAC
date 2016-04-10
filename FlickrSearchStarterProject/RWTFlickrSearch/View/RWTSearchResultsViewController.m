@@ -36,10 +36,10 @@
     
     UINib *cell = [UINib nibWithNibName:@"RWTSearchResultsTableViewCell" bundle:nil];
     self.bindingHelper = [CETableViewBindingHelper bindingHelperForTableView:self.searchResultsTable sourceSignal:RACObserve(self.viewModel, searchResults) selectionCommand:nil templateCell:cell];
-    self.bindingHelper.delegate = self;
+    self.bindingHelper.delegate = self; //把scroll view delegate 传送回来
 }
 
-#pragma mark - scroll view delegate
+#pragma mark - scroll view delegate (to make parallax works)
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     NSArray *cells = [self.searchResultsTable visibleCells];

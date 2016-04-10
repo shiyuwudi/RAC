@@ -10,7 +10,7 @@
 #import "RWTViewModelServices.h"
 #import "RWTFlickrSearchResults.h"
 
-@interface RWTSearchResultsViewModel : NSObject
+@interface RWTSearchResultsViewModel : NSObject//是控制器的view model
 
 @property (nonatomic, copy) NSString *title;//结果控制器的标题
 @property (nonatomic, strong) NSArray *searchResults;//结果控制器的图片数组
