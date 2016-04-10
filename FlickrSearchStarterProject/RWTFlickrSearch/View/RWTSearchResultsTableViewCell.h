@@ -7,4 +7,6 @@
 
 @interface RWTSearchResultsTableViewCell : UITableViewCell
 
+- (void) setParallax:(CGFloat)value;
+
 @end

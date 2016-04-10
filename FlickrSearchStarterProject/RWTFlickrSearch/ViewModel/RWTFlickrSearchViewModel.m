@@ -7,6 +7,7 @@
 //
 
 #import "RWTFlickrSearchViewModel.h"
+#import "RWTSearchResultsViewModel.h"
 
 @interface RWTFlickrSearchViewModel ()
 
@@ -41,9 +42,13 @@
 }
 
 - (RACSignal *)executeSearchSignal {
+    //返回搜索结果模型
     return [[[self.services getFlickrSearchService]
              flickerSearchSignal:self.searchText]
-            logAll];
+            doNext:^(RWTFlickrSearchResults *searchResults) {
+                RWTSearchResultsViewModel *viewModel = [[RWTSearchResultsViewModel alloc]initWithSearchResults:searchResults services:self.services];
+                [self.services pushViewModel:viewModel];
+            }];
 }
 
 - (BOOL)isValidSearchText:(NSString *)text {

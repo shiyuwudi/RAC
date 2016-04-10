@@ -13,4 +13,7 @@
 
 - (id<RWTFlickrSearch>) getFlickrSearchService;
 
+//使用协议来避免ViewModel引用View Controller
+- (void)pushViewModel:(id)viewModel;
+
 @end

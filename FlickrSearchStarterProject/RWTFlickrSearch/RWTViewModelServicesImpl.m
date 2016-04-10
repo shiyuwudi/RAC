@@ -8,10 +8,13 @@
 
 #import "RWTViewModelServicesImpl.h"
 #import "RWTFlickrSearchImpl.h" //实现的具体网络搜索方法
+#import "RWTSearchResultsViewController.h"
+#import "RWTSearchResultsViewModel.h"
 
 @interface RWTViewModelServicesImpl ()
 
 @property (nonatomic, strong) RWTFlickrSearchImpl *searchService;
+@property (nonatomic, weak) UINavigationController *navigationController;
 
 @end
 
@@ -28,5 +31,24 @@
 -(id<RWTFlickrSearch>)getFlickrSearchService {
     return self.searchService;
 }
+
+-(instancetype)initWithNavigationController:(UINavigationController *)navi{
+    if (self = [super init]) {
+        _searchService = [RWTFlickrSearchImpl new];
+        _navigationController = navi;
+    }
+    return self;
+}
+
+-(void)pushViewModel:(id)viewModel{
+    id viewController;
+    if ([viewModel isKindOfClass:RWTSearchResultsViewModel.class]) {
+        viewController = [[RWTSearchResultsViewController alloc]initWithViewModel:viewModel];
+    } else {
+        NSLog(@"push了一个未知的view model");
+    }
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 
 @end

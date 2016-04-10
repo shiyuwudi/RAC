@@ -12,8 +12,8 @@
 
 @interface RWTSearchResultsViewModel : NSObject
 
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, strong) NSArray *results;
+@property (nonatomic, copy) NSString *title;//结果控制器的标题
+@property (nonatomic, strong) NSArray *searchResults;//结果控制器的图片数组
 
 - (instancetype)initWithSearchResults:(RWTFlickrSearchResults *)searchResults services:(id<RWTViewModelServices>)services;
 

@@ -10,4 +10,12 @@
 
 @implementation RWTSearchResultsViewModel
 
+-(instancetype)initWithSearchResults:(RWTFlickrSearchResults *)searchResults services:(id<RWTViewModelServices>)services {
+    if (self = [super init]) {
+        _title = searchResults.searchString;
+        _searchResults = searchResults.photos;
+    }
+    return self;
+}
+
 @end
